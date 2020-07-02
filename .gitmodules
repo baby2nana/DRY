@@ -1,0 +1,3 @@
+[submodule "Assets/DepenOn"]
+	path = Assets/DepenOn
+	url = git@github.com:baby2nana/DependOn.git
