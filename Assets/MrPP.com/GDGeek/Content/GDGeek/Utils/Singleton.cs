@@ -12,6 +12,7 @@ public abstract class Singleton <T> : MonoBehaviour where T : Singleton<T>
         {
             if(instance_ == null)
             {
+                
                 T[] types = FindObjectsOfType<T>();
                 if(types == null || types.Length == 0)
                 {
