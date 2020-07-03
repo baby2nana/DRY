@@ -24,11 +24,23 @@ public class NetworkSystem : MonoBehaviour
 
     private List<SessionInfo> sessions_ = new List<SessionInfo>();
 
+
+    public SessionInfo findSessino(int uuid)
+    {
+        foreach(var session in sessions_)
+        {
+            if(session.uuid == uuid)
+            {
+                return session;
+            }
+        }
+        return null;
+    }
     public class SessionInfo
     {
         public string name;
         public string ip;
-        public string uuid;
+        public int uuid;
     }
 
     public List<SessionInfo> sessions
@@ -105,7 +117,7 @@ public class NetworkSystem : MonoBehaviour
         //[SerializeField]
         public string name;
        // [SerializeField]
-        public string uuid;
+        public int uuid;
     }
     private void Awake() {
         if(_discovery == null)
@@ -116,7 +128,7 @@ public class NetworkSystem : MonoBehaviour
     }
 
 
-    public void testSessin(string id)
+    public void testSessin(int id)
     {
         this.sessions_.Add(new SessionInfo(){ ip = "192.168.8.8",name = "jinbao MacBook Pro 13",uuid = id});
         Debug.Log("count is " + this.sessions_.Count);
