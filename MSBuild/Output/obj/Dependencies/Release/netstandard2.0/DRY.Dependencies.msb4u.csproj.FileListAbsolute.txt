@@ -1,0 +1,2 @@
+/Users/JinBao/LashChance/Assets/Dependencies/netstandard2.0/DRY.Dependencies.msb4u.deps.json
+/Users/JinBao/LashChance/MSBuild/Output/obj/Dependencies/Release/netstandard2.0/DRY.Dependencies.msb4u.csprojAssemblyReference.cache
