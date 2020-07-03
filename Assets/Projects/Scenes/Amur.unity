@@ -222,6 +222,9 @@ GameObject:
   - component: {fileID: 449848071}
   - component: {fileID: 449848074}
   - component: {fileID: 449848072}
+  - component: {fileID: 449848073}
+  - component: {fileID: 449848076}
+  - component: {fileID: 449848075}
   m_Layer: 0
   m_Name: NetWork
   m_TagString: Untagged
@@ -325,6 +328,19 @@ MonoBehaviour:
   matchSize: 4
   isNetworkActive: 0
   matchMaker: {fileID: 0}
+--- !u!114 &449848073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449848070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b21de5ec206f249bdc9317deecad24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _discovery: {fileID: 449848074}
 --- !u!114 &449848074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,6 +363,47 @@ MonoBehaviour:
   m_ShowGUI: 1
   m_OffsetX: 0
   m_OffsetY: 0
+--- !u!114 &449848075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449848070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65d2fd6d939653246a19239333f3dd47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: 111
+  _action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 449848073}
+        m_MethodName: testSessin
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 1
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &449848076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449848070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc27ade7c243ceb4ba3d232e188e4eb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _system: {fileID: 449848073}
+  stateName_: 
 --- !u!1 &593389536
 GameObject:
   m_ObjectHideFlags: 0
