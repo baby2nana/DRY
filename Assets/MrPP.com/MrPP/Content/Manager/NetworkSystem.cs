@@ -116,9 +116,9 @@ public class NetworkSystem : MonoBehaviour
     }
 
 
-    public void testSessin()
+    public void testSessin(string id)
     {
-        this.sessions_.Add(new SessionInfo(){ ip = "192.168.8.8",name = "jinbao MacBook Pro 13",uuid = "uuid..."});
+        this.sessions_.Add(new SessionInfo(){ ip = "192.168.8.8",name = "jinbao MacBook Pro 13",uuid = id});
         Debug.Log("count is " + this.sessions_.Count);
         doSessionReceive();
     }
