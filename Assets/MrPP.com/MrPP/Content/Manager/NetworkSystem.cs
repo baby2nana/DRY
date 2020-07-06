@@ -61,6 +61,7 @@ public class NetworkSystem : MonoBehaviour
 
     private void receiveBroadcast(string fromAddress,string data)
     {
+        //192.168.31.31:data is   截取':'之后的字符串
         string serverIp = fromAddress.Substring(fromAddress.LastIndexOf(':') + 1);
         BroadcastData db = JsonUtility.FromJson<BroadcastData>(data);
         this.sessions_.Add(new SessionInfo(){ip = serverIp,name = db.name,uuid = db.uuid});
