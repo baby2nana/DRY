@@ -16,7 +16,7 @@ public class PlatformInfo : Singleton<PlatformInfo>
         Mobile,
         Unknow,
     }
-
+    [SerializeField]
     private Type type_ = Type.Hololens2;
     public Type type{
         get
@@ -29,7 +29,7 @@ public class PlatformInfo : Singleton<PlatformInfo>
     {
         get
         {
-            System.Type ty = System.Type.GetType("MrPP.SuperView" + type_.ToString());
+            System.Type ty = System.Type.GetType("MrPP.SuperView." + type_.ToString());
             return  ty;
         }
     }

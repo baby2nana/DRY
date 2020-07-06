@@ -220,6 +220,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 357046046}
+  - component: {fileID: 357046048}
+  - component: {fileID: 357046047}
   m_Layer: 0
   m_Name: Hololens2Client
   m_TagString: Untagged
@@ -241,6 +243,30 @@ Transform:
   m_Father: {fileID: 1922642141}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &357046047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357046045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6326f606ba3344d9a7fd635179f6fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &357046048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357046045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 200afcabb73b5bf42b57339a9e9c76d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &449848070
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,6 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18c8a654e9962d44c9862a2c36c59c2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type_: 2
 --- !u!1 &1701992490
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,6 +578,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1701992491}
+  - component: {fileID: 1701992493}
+  - component: {fileID: 1701992492}
   m_Layer: 0
   m_Name: MobileServer
   m_TagString: Untagged
@@ -572,6 +601,30 @@ Transform:
   m_Father: {fileID: 1922642141}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1701992492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701992490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69a356634d8d41343a68b66d75a68d19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1701992493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701992490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 200afcabb73b5bf42b57339a9e9c76d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1922642140
 GameObject:
   m_ObjectHideFlags: 0

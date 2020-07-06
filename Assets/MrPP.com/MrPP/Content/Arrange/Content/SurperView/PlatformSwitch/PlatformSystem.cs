@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Linq;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +17,6 @@ public class PlatformSystem : MonoBehaviour
     void Awake()
     {
         bool isLoaded = false;
-        Debug.Log("How many count of scenes " + SceneManager.sceneCount);
         PlatformInfo.Type type = PlatformInfo.Instance.type;
         for(int i = 0; i< SceneManager.sceneCount; i++)
         {
@@ -33,10 +33,11 @@ public class PlatformSystem : MonoBehaviour
         }
 
         PlatformOn[] platfromOns = FindObjectsOfType<PlatformOn>();
+        Debug.Log("count of plarfrom" + platfromOns.Count());
         foreach(var pt in platfromOns)
         {
         
-            
+            Debug.Log("PlatformInfo.Instance.stamp is .." + PlatformInfo.Instance.stamp.ToString());
             if(!pt.gameObject.HasComponent(PlatformInfo.Instance.stamp))
             {
                 Destroy(pt.gameObject);
