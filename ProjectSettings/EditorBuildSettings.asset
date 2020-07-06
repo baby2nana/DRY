@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Projects/Unet/Scenes/UNet.unity
+    guid: 25580855215bbaa44ac1b699ae0813af
+  - enabled: 1
     path: Assets/Projects/Scenes/Amur.unity
     guid: ec3f7666c70c2804980504141c32ee6d
   - enabled: 1
