@@ -46,6 +46,36 @@ public abstract class Singleton <T> : MonoBehaviour where T : Singleton<T>
        return null;
    } 
 
+    static private T CreateInstance()
+    {
+        var common = GameObject.Find("Common");
+        if(common == null)
+        {
+            common = new GameObject("Common");
+        }
+        return common.AddComponent<T>();
+    }
+    
+    static private T FindOrCreateInstance()
+    {
+        T t = FindInstance();
+        if(t == null)
+        {
+            t = CreateInstance();
+        }
+        return t;
+    }
+    static public T GetOrCreateInstance
+    {
+        get
+        {
+            if(instance_ == null)
+            {
+                instance_ = FindOrCreateInstance();
+            }
+            return instance_;
+        }
+    }
    static public T Instance
    {
         get

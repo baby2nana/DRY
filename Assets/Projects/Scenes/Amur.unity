@@ -580,6 +580,7 @@ GameObject:
   - component: {fileID: 1701992491}
   - component: {fileID: 1701992493}
   - component: {fileID: 1701992492}
+  - component: {fileID: 1701992494}
   m_Layer: 0
   m_Name: MobileServer
   m_TagString: Untagged
@@ -625,6 +626,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200afcabb73b5bf42b57339a9e9c76d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1701992494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701992490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f0ba4ad7260e174e8c3486eafa6ff8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateName_: 
 --- !u!1 &1922642140
 GameObject:
   m_ObjectHideFlags: 0

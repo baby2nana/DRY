@@ -7,14 +7,27 @@ namespace MrPP.Network
 {
 
 
-public class NetworkState : MonoBehaviour
+public class NetworkState : Singleton<NetworkState>
 {
     [SerializeField]
     private NetworkSystem _system;
 
+    public List<NetworkSystem.SessionInfo> sessions{
+        get
+        {
+            return _system.sessions;
+        }
+    }
     public NetworkSystem.SessionInfo findSession(int uuid)
     {
         return _system.findSessino(uuid);
+    }
+
+    public bool isRunning
+    {
+        get{
+            return _system.running;
+        }
     }
 
     #if UNITY_EDITOR
