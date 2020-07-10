@@ -89,6 +89,10 @@ public class HololensProcess : MonoBehaviour
         return state;
     }
 
+    public void doMarkFound()
+    {
+        fsm_.post("mark-found");
+    }
     private State scanningState()
     {
         State state = new State();
@@ -120,7 +124,7 @@ public class HololensProcess : MonoBehaviour
         state.onStart += delegate{
             Debug.Log("running state is ...");
         };
-        
+
         return state;
     }
     // Start is called before the first frame update

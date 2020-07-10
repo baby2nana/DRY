@@ -58,7 +58,7 @@ public class FSM
     {
         if(fatherName == "")
         {
-            fatherName = "root";
+            state.fatherName = "root";
         }else{
             state.fatherName = fatherName;
 
@@ -98,6 +98,11 @@ public class FSM
 
     public StateBase getCurrSubState()
     {
+        Debug.Log("how many state in it ..." + this.currStates_.Count);
+        foreach(var state in this.currStates_)
+        {
+            Debug.Log("state name is.." + state.name);
+        }
         return this.currStates_[this.currStates_.Count - 1];
     }
 
@@ -129,13 +134,16 @@ public class FSM
 
     public void translation(string stateName)
     {
+        Debug.Log("currStates count is ..." + this.currStates_.Count +"name is..." +  this.currStates_[0].name);
+        //init state 需要在 states 字典里 不然无法 init
         if(!this.states_.ContainsKey(stateName))
         {
             return ;
         }
 
+        //获取到状态的末端子状态，如果是当前状态的最后一个，那么状态结束
         StateBase target = this.states_[stateName];
-
+        Debug.Log("target name ..." + target.name + "target father name..." + target.fatherName);
         while(!string.IsNullOrEmpty(target.defsubState) && this.states_.ContainsKey(target.defsubState))
         {
             target = this.states_[target.defsubState];
@@ -153,7 +161,7 @@ public class FSM
 
         StateBase tempState = target;
         string fatherName = target.fatherName;
-
+        Debug.Log("father name is.." + fatherName);
         //do loop
         while(tempState != null)
         {
@@ -170,9 +178,10 @@ public class FSM
             //end
             if(publicState != null)
             {
+                Debug.Log("public state != null ...");
                 break;
             }
-
+            Debug.Log("state list insert ....");
             stateList.Insert(0,tempState);
             if(fatherName != "")
             {
@@ -182,9 +191,10 @@ public class FSM
                 tempState = null;
             }
         }
-
+        Debug.Log("public state is ..." + publicState.name);
         if(publicState == null)
         {
+            Debug.Log("public state is null...");
             return;
         }
 
@@ -206,7 +216,7 @@ public class FSM
             }
         }
         //构建状态
-        foreach(var state in this.currStates_)
+        foreach(var state in stateList)
         {
             state.start();
             newCurrState.Add(state);
