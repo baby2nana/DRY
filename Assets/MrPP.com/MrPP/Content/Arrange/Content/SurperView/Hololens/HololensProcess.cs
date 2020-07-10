@@ -83,9 +83,44 @@ public class HololensProcess : MonoBehaviour
                     NetworkState.Instance?.doJoin();
                 }
             });
-            return new Task();
+            return task;
         },fsm_,"scanning");
 
+        return state;
+    }
+
+    private State scanningState()
+    {
+        State state = new State();
+        state.onStart += delegate{
+            Debug.Log("scanning state is ...");
+        };
+        state.addAction("mark-found",delegate(FSMEvent evt)
+        {
+            return "wanit";
+        });
+
+        return state;
+    }
+
+    private State waitState()
+    {
+        State state = TaskState.Create(delegate{
+            Debug.Log("wait state is ...");
+            return new Task();
+
+        },fsm_,"running");
+
+        return state;
+    }
+
+    private State runningState()
+    {
+        State state = new State();
+        state.onStart += delegate{
+            Debug.Log("running state is ...");
+        };
+        
         return state;
     }
     // Start is called before the first frame update
@@ -103,9 +138,9 @@ public class HololensProcess : MonoBehaviour
         fsm_.addState("single",singleState());
 
         fsm_.addState("join",joinState());
-        // fsm_.addState("scanning",scanningState());
-        // fsm_.addState("wait",waitState());
-        // fsm_.addState("running",runningState());
+        fsm_.addState("scanning",scanningState());
+        fsm_.addState("wait",waitState());
+        fsm_.addState("running",runningState());
 
         fsm_.init("begin");
     }
