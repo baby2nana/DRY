@@ -26,23 +26,42 @@ public class HololensProcess : MonoBehaviour
     }
     #endif
 
-    private State singleState()
+    private State singleRunState()
     {
         State state = new State();
-
+        state.onStart += delegate
+        {
+            Debug.Log("single state start ....");
+        };
         return state;
     }
 
     private State aloneState()
     {
-        State state = TaskState.Create(delegate
+        State state = new State();
+        state.onStart += delegate
         {
-            Task task = new TaskWait(0.3f);
-            TaskManager.PushFront(task,delegate{
-                NetworkState.Instance?.doAlone();
-            });
-            return task;
-        },fsm_,"single");
+            Debug.Log("alone state onStart...");
+        };
+        // TaskState.Create(delegate
+        // {
+        //     Task task = new TaskWait(0.3f);
+        //     TaskManager.PushFront(task,delegate{
+        //         Debug.Log("alone state task...");
+        //         NetworkState.Instance?.doAlone();
+        //     });
+        //     return task;
+        // },fsm_,"single");
+        
+
+        state.addAction("start",delegate{
+            Debug.Log("alone state do start...");
+            return "single";
+        });
+        
+        state.onOver += delegate{
+            Debug.Log("over alone state...");
+        };
 
         return state;
     }
@@ -139,7 +158,7 @@ public class HololensProcess : MonoBehaviour
         fsm_.addState("begin",beginState());
         
         fsm_.addState("alone",aloneState());
-        fsm_.addState("single",singleState());
+        fsm_.addState("single",singleRunState());
 
         fsm_.addState("join",joinState());
         fsm_.addState("scanning",scanningState());

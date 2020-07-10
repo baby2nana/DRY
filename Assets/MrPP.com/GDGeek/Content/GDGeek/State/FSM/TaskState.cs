@@ -36,9 +36,9 @@ public class TaskState
         state.addAction(over,nextState);
         return state;
     }
-    public static State Create(TaskFactory create,FSM fsm,string nextState)
+    public static State Create(TaskFactory creater,FSM fsm,string nextState)
     {
-        return Create(create, fsm, delegate {
+        return Create(creater, fsm, delegate {
             return nextState;
         });
     }

@@ -167,7 +167,7 @@ public class NetworkState : Singleton<NetworkState>
         };
         return state;
     }
-    void Start()
+    void Awake()
     {
         fsm_.addState("begin",beginState());
         fsm_.addState("host",hostState());

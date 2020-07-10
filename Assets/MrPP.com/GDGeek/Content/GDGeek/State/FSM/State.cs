@@ -23,6 +23,14 @@ public class State : StateBase
         });
     }
 
+    // public void addAction(string evt, EvtAction action)
+    // {
+	// 		this.addAction (evt, delegate(FSMEvent e) {
+	// 			action(e);
+	// 			return "";
+	// 		});
+	// }
+
     public void addAction(string evt,StateAction action)
     {
         if(!actionMap_.ContainsKey(evt))
