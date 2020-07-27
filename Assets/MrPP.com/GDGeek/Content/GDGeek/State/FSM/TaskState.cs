@@ -11,24 +11,26 @@ public class TaskState
 {
     protected static int index_ = 0;
 
-    public static State Create(TaskFactory create,FSM fsm,State.StateAction nextState)
+    public static State Create(TaskFactory creater,FSM fsm,State.StateAction nextState)
     {
         string over = "over" + index_.ToString();
         index_ ++;
         State state = new State();
         Task task = null;
         state.onStart += delegate{
-            task = create();
+            Debug.Log("task state on start...");
+            task = creater();
             TaskManager.PushBack(task,delegate{
+                Debug.Log("task state of taskmanager push back...");
                 fsm.post(over);
             });
-
+            Debug.Log("TaskManager run ....");
             TaskManager.Run(task);
         };
 
-        state.onStart += delegate
+        state.onOver += delegate
         {
-            task.isover = delegate
+            task.isOver = delegate
             {
                 return true;
             };
@@ -36,6 +38,7 @@ public class TaskState
         state.addAction(over,nextState);
         return state;
     }
+    
     public static State Create(TaskFactory creater,FSM fsm,string nextState)
     {
         return Create(creater, fsm, delegate {

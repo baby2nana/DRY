@@ -17,6 +17,7 @@ public class PlatformSystem : MonoBehaviour
     void Awake()
     {
         bool isLoaded = false;
+        
         PlatformInfo.Type type = PlatformInfo.Instance.type;
         for(int i = 0; i< SceneManager.sceneCount; i++)
         {
@@ -32,9 +33,9 @@ public class PlatformSystem : MonoBehaviour
             SceneManager.LoadScene(type.ToString(),LoadSceneMode.Additive);
         }
 
-        PlatformOn[] platfromOns = FindObjectsOfType<PlatformOn>();
-        Debug.Log("count of plarfrom" + platfromOns.Count());
-        foreach(var pt in platfromOns)
+        PlatformOn[] platformOns = FindObjectsOfType<PlatformOn>();
+        Debug.Log("count of plarfrom" + platformOns.Count());
+        foreach(var pt in platformOns)
         {
         
             Debug.Log("PlatformInfo.Instance.stamp is .." + PlatformInfo.Instance.stamp.ToString());

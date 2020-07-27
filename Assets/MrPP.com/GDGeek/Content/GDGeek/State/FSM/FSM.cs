@@ -20,7 +20,7 @@ public class FSM
         set;
     }
 
-    public FSM(bool debug = true)
+    public FSM(bool debug = false)
     {
         this.debug_ = debug;
         StateBase root = new StateBase();

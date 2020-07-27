@@ -38,31 +38,15 @@ public class HololensProcess : MonoBehaviour
 
     private State aloneState()
     {
-        State state = new State();
-        state.onStart += delegate
+        State state = TaskState.Create(delegate
         {
-            Debug.Log("alone state onStart...");
-        };
-        // TaskState.Create(delegate
-        // {
-        //     Task task = new TaskWait(0.3f);
-        //     TaskManager.PushFront(task,delegate{
-        //         Debug.Log("alone state task...");
-        //         NetworkState.Instance?.doAlone();
-        //     });
-        //     return task;
-        // },fsm_,"single");
-        
-
-        state.addAction("start",delegate{
-            Debug.Log("alone state do start...");
-            return "single";
-        });
-        
-        state.onOver += delegate{
-            Debug.Log("over alone state...");
-        };
-
+            Task task = new TaskWait(0.3f);
+            TaskManager.PushFront(task,delegate{
+                Debug.Log("alone state task...");
+               // NetworkState.Instance?.doAlone();
+            });
+            return task;
+        },this.fsm_,"single");
         return state;
     }
     public void doSessionReceive()
@@ -154,6 +138,17 @@ public class HololensProcess : MonoBehaviour
         {
             NetworkState.Instance.onSessionReceive += doSessionReceive;
         }
+
+        Task task = new Task();
+        TaskManager.PushFront(task,delegate{
+            Debug.Log("task manager push front....");
+        });
+
+        TaskManager.PushBack(task,delegate{
+            Debug.Log("task manager push back...");
+        });
+
+        TaskManager.Run(task);
 
         fsm_.addState("begin",beginState());
         

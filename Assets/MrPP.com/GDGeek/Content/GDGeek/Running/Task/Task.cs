@@ -10,7 +10,7 @@ public class Task
     public TaskInit init = delegate(){};
     public TaskShutDown shutDown = delegate(){};
     public TaskUpdate update = delegate(float d){};
-    public TaskIsOver isover = delegate()
+    public TaskIsOver isOver = delegate()
     {
         return true;
     };

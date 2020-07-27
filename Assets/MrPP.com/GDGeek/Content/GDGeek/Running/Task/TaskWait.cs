@@ -5,8 +5,8 @@ namespace GDGeek
 {
 public class TaskWait : Task
 {
-   private float allTime_ ;
-   private float time_;
+   private float allTime_ = 0f;
+   private float time_ = 0f;
 
     public void initImpl()
     {
@@ -30,18 +30,22 @@ public class TaskWait : Task
    {
        this.init = initImpl;
        this.update = updateImpl;
-       this.isover = isOverImpl;
+       this.isOver = isOverImpl;
    }
     public void setAllTime(float allTime)
     {
         allTime_ = allTime;
     }
 
+    public void forceQuit()
+    {
+		time_ = allTime_;
+	}
    public TaskWait(float d)
    {
        this.init = initImpl;
        this.update = updateImpl;
-       this.isover = isOverImpl;
+       this.isOver = isOverImpl;
        this.setAllTime(d);
    }
 
